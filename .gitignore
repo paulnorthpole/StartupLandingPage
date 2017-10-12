@@ -82,3 +82,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 /config.codekit3
+!/styles/css/app.css
