@@ -39,7 +39,7 @@ function walkAsync(directory, excludedDirectories, fileCallback, errback) {
           return;
         }
         if (stats.isSymbolicLink()) {
-          return;
+
         }
         else if (stats.isDirectory()) {
           process.nextTick(walkAsync, filepath, excludedDirectories, fileCallback, errback);
@@ -68,7 +68,7 @@ function replaceRecursively(directory, excludedDirectories, allowedExtensions, o
       }
     });
   walkAsync('.', excludedDirectories, updateFile, function (err) {
-    console.error('ERROR while traversing directory!:')
+    console.error('ERROR while traversing directory!:');
     console.error(err);
     process.exit(1);
   });
@@ -100,6 +100,5 @@ function main(args) {
     '.yml'
   ]);
   replaceRecursively('.', EXCLUDED_DIRS, INCLUDED_EXTENSIONS, oldVersion, newVersion);
-};
-
+}
 main(process.argv.slice(2));
